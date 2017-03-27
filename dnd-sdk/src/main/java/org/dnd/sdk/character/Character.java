@@ -6,6 +6,7 @@ import org.dnd.sdk.age.Aging;
 import org.dnd.sdk.character.race.interfaces.Race;
 import org.dnd.sdk.condition.Condition;
 import org.dnd.sdk.language.Language;
+import org.dnd.sdk.language.LanguageUnderstanding;
 import org.dnd.sdk.move.Moveable;
 
 /**
@@ -38,7 +39,7 @@ public class Character implements Aging, Moveable {
         return this.race.getMovementSpeed();
     }
     
-    public List<Language> getLanguages() {
+    public List<LanguageUnderstanding> getLanguages() {
         return this.race.getLanguages();
     }
     
