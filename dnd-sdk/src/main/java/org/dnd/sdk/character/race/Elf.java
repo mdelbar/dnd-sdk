@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import org.dnd.sdk.ability.Ability;
 import org.dnd.sdk.ability.AbilityIncrease;
+import org.dnd.sdk.language.Language;
+import org.dnd.sdk.language.LanguageUnderstanding;
 
 /**
  * Elf extends from AbstractRace class.
@@ -32,6 +34,14 @@ public class Elf extends Race {
 
     public int getAverageAge() {
         return 750;
+    }
+
+    @Override
+    public List<LanguageUnderstanding> getLanguages() {
+        return Arrays.asList(
+            LanguageUnderstanding.construct(Language.ELVISH, true, true, true),
+            LanguageUnderstanding.construct(Language.COMMON, true, true, true)  
+        );
     }
     
 }

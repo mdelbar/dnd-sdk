@@ -10,12 +10,21 @@ import java.util.Arrays;
 import java.util.List;
 import org.dnd.sdk.ability.Ability;
 import org.dnd.sdk.ability.AbilityIncrease;
+import org.dnd.sdk.language.Language;
+import org.dnd.sdk.language.LanguageUnderstanding;
 
 /**
  *
  * @author Arne
  */
 public class Human extends Race {
+    
+    private Language chosenLanguage;
+    
+    public Human (Language chosenLanguage) {
+        this.chosenLanguage = chosenLanguage;
+    }
+    
     public List<AbilityIncrease> getAbilityIncreases() {
         return Arrays.asList(
                 AbilityIncrease.construct(Ability.STRENGTH, 1),
@@ -33,5 +42,13 @@ public class Human extends Race {
 
     public int getAverageAge() {
         return 85;
+    }
+    
+    @Override
+    public List<LanguageUnderstanding> getLanguages() {
+        return Arrays.asList(            
+            LanguageUnderstanding.construct(Language.COMMON, true, true, true),
+            LanguageUnderstanding.construct(chosenLanguage, true, true, true)
+        );
     }
 }

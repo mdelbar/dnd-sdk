@@ -10,6 +10,8 @@ import java.util.List;
 import org.dnd.sdk.ability.Ability;
 import org.dnd.sdk.ability.AbilityIncrease;
 import org.dnd.sdk.character.race.interfaces.Race;
+import org.dnd.sdk.language.Language;
+import org.dnd.sdk.language.LanguageUnderstanding;
 
 /**
  *
@@ -29,5 +31,13 @@ public class Tiefling extends Race {
 
     public int getAverageAge() {
         return 90;
+    }
+    
+    @Override
+    public List<LanguageUnderstanding> getLanguages() {
+        return Arrays.asList(
+            LanguageUnderstanding.construct(Language.INFERNAL, true, true, true),
+            LanguageUnderstanding.construct(Language.COMMON, true, true, true)    
+        );
     }
 }

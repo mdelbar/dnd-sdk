@@ -10,6 +10,8 @@ import java.util.Arrays;
 import java.util.List;
 import org.dnd.sdk.ability.Ability;
 import org.dnd.sdk.ability.AbilityIncrease;
+import org.dnd.sdk.language.Language;
+import org.dnd.sdk.language.LanguageUnderstanding;
 
 /**
  *
@@ -29,5 +31,13 @@ public class HalfOrc extends Race {
 
     public int getAverageAge() {
         return 75;
+    }
+    
+    @Override
+    public List<LanguageUnderstanding> getLanguages() {
+        return Arrays.asList(
+            LanguageUnderstanding.construct(Language.ORC, true, true, true),
+            LanguageUnderstanding.construct(Language.COMMON, true, true, true)            
+        );
     }
 }

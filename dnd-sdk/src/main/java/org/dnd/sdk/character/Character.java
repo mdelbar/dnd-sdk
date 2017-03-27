@@ -1,8 +1,11 @@
 
 package org.dnd.sdk.character;
 
+import java.util.List;
 import org.dnd.sdk.age.Aging;
 import org.dnd.sdk.character.race.interfaces.Race;
+import org.dnd.sdk.condition.Condition;
+import org.dnd.sdk.language.Language;
 import org.dnd.sdk.move.Moveable;
 
 /**
@@ -13,6 +16,10 @@ public class Character implements Aging, Moveable {
     
     private Race race;
     private int age;
+    
+    private Condition currentCondition;
+    
+    
 
     public int getAge() {
         return this.age;
@@ -29,6 +36,10 @@ public class Character implements Aging, Moveable {
     public int getMovementSpeed() {
         // TODO: Add speed modifiers by equiped items etc.
         return this.race.getMovementSpeed();
+    }
+    
+    public List<Language> getLanguages() {
+        return this.race.getLanguages();
     }
     
 }

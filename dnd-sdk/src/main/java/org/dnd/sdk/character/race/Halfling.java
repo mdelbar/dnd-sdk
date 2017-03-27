@@ -10,6 +10,8 @@ import java.util.Arrays;
 import java.util.List;
 import org.dnd.sdk.ability.Ability;
 import org.dnd.sdk.ability.AbilityIncrease;
+import org.dnd.sdk.language.Language;
+import org.dnd.sdk.language.LanguageUnderstanding;
 
 /**
  *
@@ -33,5 +35,13 @@ public class Halfling extends Race {
     @Override
     public int getMovementSpeed() {
         return 25;
+    }
+    
+    @Override
+    public List<LanguageUnderstanding> getLanguages() {
+        return Arrays.asList(
+            LanguageUnderstanding.construct(Language.HALFLING, true, true, true),
+            LanguageUnderstanding.construct(Language.COMMON, true, true, true)
+        );
     }
 }
