@@ -5,10 +5,23 @@
  */
 package org.dnd.sdk.character.race;
 
+import org.dnd.sdk.character.race.interfaces.Race;
+import java.util.Arrays;
+import java.util.List;
+import org.dnd.sdk.ability.Ability;
+import org.dnd.sdk.ability.AbilityIncrease;
+
 /**
  *
  * @author Arne
  */
 public class Dragonborn extends Race {
+
+    public List<AbilityIncrease> getAbilityIncreases() {
+        return Arrays.asList(
+                AbilityIncrease.construct(Ability.STRENGTH, 2),
+                AbilityIncrease.construct(Ability.CHARISMA, 1)
+        );
+    }
     
 }

@@ -1,7 +1,7 @@
 
 package org.dnd.sdk.character;
 
-import org.dnd.sdk.character.race.Race;
+import org.dnd.sdk.character.race.interfaces.Race;
 
 /**
  *
