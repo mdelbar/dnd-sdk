@@ -12,11 +12,6 @@ package org.dnd.sdk.character.race;
  * 
  * @author Matthias Delbar
  */
-public class Elf extends AbstractRace {
-
-    @Override
-    public int getDexterityModifier() {
-        return 2;
-    }
+public class Elf extends Race {
     
 }
