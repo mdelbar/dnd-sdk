@@ -1,5 +1,5 @@
 
-package org.dnd.skill;
+package org.dnd.sdk.skill;
 
 import org.dnd.sdk.ability.Ability;
 

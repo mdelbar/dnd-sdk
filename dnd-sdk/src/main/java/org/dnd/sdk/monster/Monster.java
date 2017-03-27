@@ -1,5 +1,5 @@
 
-package org.dnd.monster;
+package org.dnd.sdk.monster;
 
 /**
  *

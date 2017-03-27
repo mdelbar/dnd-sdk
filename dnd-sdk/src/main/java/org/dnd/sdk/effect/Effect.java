@@ -1,7 +1,7 @@
 
-package org.dnd.effect;
+package org.dnd.sdk.effect;
 
-import org.dnd.monster.Monster;
+import org.dnd.sdk.monster.Monster;
 
 /**
  * Visitor like pattern that an effect can be different for a character and for a monster
