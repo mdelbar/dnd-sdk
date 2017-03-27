@@ -9,6 +9,7 @@ package org.dnd.sdk.age;
  *
  * @author Arne
  */
-public interface Aging extends LifeExpectancy {   
-    public int getAge();
+public interface LifeExpectancy {
+    public int getMatureAge();
+    public int getAverageAge();
 }
