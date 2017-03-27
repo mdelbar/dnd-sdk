@@ -26,4 +26,12 @@ public class Human extends Race {
                 AbilityIncrease.construct(Ability.CHARISMA, 1)
         );
     }   
+
+    public int getMatureAge() {
+        return 18;
+    }
+
+    public int getAverageAge() {
+        return 85;
+    }
 }

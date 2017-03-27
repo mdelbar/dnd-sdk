@@ -23,5 +23,13 @@ public class Dragonborn extends Race {
                 AbilityIncrease.construct(Ability.CHARISMA, 1)
         );
     }
+
+    public int getMatureAge() {
+        return 15;
+    }
+
+    public int getAverageAge() {
+        return 80;
+    }
     
 }

@@ -26,4 +26,12 @@ public class Dwarf extends Race {
         );
     }
 
+    public int getMatureAge() {
+        return 50;
+    }
+
+    public int getAverageAge() {
+        return 350;
+    }
+
 }

@@ -21,4 +21,12 @@ public class Halfling extends Race {
                 AbilityIncrease.construct(Ability.DEXTERITY, 2)
         );
     }   
+
+    public int getMatureAge() {
+        return 20;
+    }
+
+    public int getAverageAge() {
+        return 250;
+    }
 }

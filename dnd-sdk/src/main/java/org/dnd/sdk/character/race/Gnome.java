@@ -21,4 +21,12 @@ public class Gnome extends Race {
                 AbilityIncrease.construct(Ability.INTELLIGENCE, 2)
         );
     }    
+
+    public int getMatureAge() {
+        return 40;
+    }
+
+    public int getAverageAge() {
+        return 475;
+    }
 }

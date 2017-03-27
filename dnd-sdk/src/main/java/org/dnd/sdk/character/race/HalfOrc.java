@@ -22,4 +22,12 @@ public class HalfOrc extends Race {
                 AbilityIncrease.construct(Ability.CONSTITUTION, 1)
         );
     }      
+
+    public int getMatureAge() {
+        return 14;
+    }
+
+    public int getAverageAge() {
+        return 75;
+    }
 }

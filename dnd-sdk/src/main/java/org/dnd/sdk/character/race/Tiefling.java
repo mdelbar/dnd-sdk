@@ -22,4 +22,12 @@ public class Tiefling extends Race {
                 AbilityIncrease.construct(Ability.CHARISMA, 2)
         );
     }   
+
+    public int getMatureAge() {
+        return 18;
+    }
+
+    public int getAverageAge() {
+        return 90;
+    }
 }

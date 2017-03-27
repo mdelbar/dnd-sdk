@@ -32,4 +32,12 @@ public class HalfElf extends Race {
                 AbilityIncrease.construct(this.chosenAbility2, 1)
         );
     }
+
+    public int getMatureAge() {
+        return 20;
+    }
+
+    public int getAverageAge() {
+        return 180;
+    }
 }

@@ -25,5 +25,13 @@ public class Elf extends Race {
                 AbilityIncrease.construct(Ability.DEXTERITY, 2)
         );
     }
+
+    public int getMatureAge() {
+        return 100;
+    }
+
+    public int getAverageAge() {
+        return 750;
+    }
     
 }
