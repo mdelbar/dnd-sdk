@@ -17,6 +17,7 @@ public enum Alignment {
     LAWFUL_NEUTRAL(Order.LAWFUL, Morality.NEUTRAL),
     NEUTRAL(Order.NEUTRAL, Morality.NEUTRAL),
     CHAOTIC_NEUTRAL(Order.LAWFUL, Morality.NEUTRAL),
+    UNALIGNED(Order.NOT_AVAILABLE, Morality.NOT_AVAILABLE)
     ;
     
     private Morality morality;
