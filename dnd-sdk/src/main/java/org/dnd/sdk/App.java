@@ -1,4 +1,4 @@
-package org.dnd-sdk;
+package org.dnd.sdk;
 
 /**
  * Hello world!

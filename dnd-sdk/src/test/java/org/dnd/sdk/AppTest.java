@@ -1,4 +1,4 @@
-package org.dnd-sdk;
+package org.dnd.sdk;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
