@@ -29,4 +29,9 @@ public class Gnome extends Race {
     public int getAverageAge() {
         return 475;
     }
+    
+    @Override
+    public int getMovementSpeed() {
+        return 25;
+    }
 }

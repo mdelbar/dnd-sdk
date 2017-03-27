@@ -29,4 +29,9 @@ public class Halfling extends Race {
     public int getAverageAge() {
         return 250;
     }
+    
+    @Override
+    public int getMovementSpeed() {
+        return 25;
+    }
 }
