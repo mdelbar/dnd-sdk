@@ -7,19 +7,19 @@ import org.dnd.sdk.ability.Ability;
 import org.dnd.sdk.ability.AbilityModifier;
 import org.dnd.sdk.ability.AbilityScores;
 import org.dnd.sdk.ability.WithAbilities;
-import org.dnd.sdk.age.Aging;
 import org.dnd.sdk.alignment.Alignment;
 import org.dnd.sdk.character.race.interfaces.Race;
 import org.dnd.sdk.condition.Condition;
 import org.dnd.sdk.language.Language;
 import org.dnd.sdk.language.LanguageUnderstanding;
 import org.dnd.sdk.move.Moveable;
+import org.dnd.sdk.age.WithAge;
 
 /**
  *
  * @author Matthias Delbar
  */
-public class Character implements Aging, Moveable, WithAbilities {
+public class Character implements WithAge, Moveable, WithAbilities {
     
     private final Race race;
     private int age;    

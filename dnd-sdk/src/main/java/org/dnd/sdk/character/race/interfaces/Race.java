@@ -3,11 +3,11 @@ package org.dnd.sdk.character.race.interfaces;
 
 import java.util.List;
 import org.dnd.sdk.ability.AbilityModifier;
-import org.dnd.sdk.age.Aging;
 import org.dnd.sdk.age.WithLifeExpectancy;
 import org.dnd.sdk.language.Language;
 import org.dnd.sdk.language.LanguageUnderstanding;
 import org.dnd.sdk.move.Moveable;
+import org.dnd.sdk.age.WithAge;
 
 /**
  *
