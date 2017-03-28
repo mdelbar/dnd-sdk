@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.dnd.sdk.ability.Ability;
 import org.dnd.sdk.ability.AbilityModifier;
-import org.dnd.sdk.character.race.interfaces.Race;
+import org.dnd.sdk.character.race.abstracts.Race;
 import org.dnd.sdk.language.Language;
 import org.dnd.sdk.language.LanguageUnderstanding;
 

@@ -8,7 +8,7 @@ import org.dnd.sdk.ability.AbilityModifier;
 import org.dnd.sdk.ability.AbilityScores;
 import org.dnd.sdk.ability.WithAbilities;
 import org.dnd.sdk.alignment.Alignment;
-import org.dnd.sdk.character.race.interfaces.Race;
+import org.dnd.sdk.character.race.abstracts.Race;
 import org.dnd.sdk.condition.Condition;
 import org.dnd.sdk.language.Language;
 import org.dnd.sdk.language.LanguageUnderstanding;
