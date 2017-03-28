@@ -1,20 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
  */
 package org.dnd.sdk.ability;
 
 /**
  *
+ * TODO: Name is going to be confusing with AbilityScoreModifier which is the 
+ * modifier of a certain ability score
+ * 
  * @author Arne
  */
-public class AbilityIncrease {
+public class AbilityModifier {
     
     private Ability ability;
     private int value;
 
-    public AbilityIncrease(Ability ability, int value) {
+    public AbilityModifier(Ability ability, int value) {
         this.ability = ability;
         this.value = value;
     }
@@ -35,8 +35,8 @@ public class AbilityIncrease {
         this.value = value;
     }
     
-    public static AbilityIncrease construct(Ability ability, int value) {
-        return new AbilityIncrease(ability, value);
+    public static AbilityModifier construct(Ability ability, int value) {
+        return new AbilityModifier(ability, value);
     }
     
 }

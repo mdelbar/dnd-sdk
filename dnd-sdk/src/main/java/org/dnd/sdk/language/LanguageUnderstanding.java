@@ -19,7 +19,7 @@ public class LanguageUnderstanding {
         this.language = language;
     }
 
-    public boolean isRead() {
+    public boolean canRead() {
         return read;
     }
 
@@ -27,7 +27,7 @@ public class LanguageUnderstanding {
         this.read = read;
     }
 
-    public boolean isWrite() {
+    public boolean canWrite() {
         return write;
     }
 
@@ -35,7 +35,7 @@ public class LanguageUnderstanding {
         this.write = write;
     }
 
-    public boolean isSpeak() {
+    public boolean canSpeak() {
         return speak;
     }
 

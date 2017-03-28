@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.dnd.sdk.ability;
-
-import java.util.List;
+package org.dnd.sdk.age;
 
 /**
  *
  * @author Arne
  */
-public interface AbilityIncreaser {
-    public List<AbilityIncrease> getAbilityIncreases(); 
+public interface WithLifeExpectancy {
+    public int getMatureAge();
+    public int getAverageAge();
 }
