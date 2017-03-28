@@ -9,7 +9,7 @@ import org.dnd.sdk.character.race.interfaces.Race;
 import java.util.Arrays;
 import java.util.List;
 import org.dnd.sdk.ability.Ability;
-import org.dnd.sdk.ability.AbilityIncrease;
+import org.dnd.sdk.ability.AbilityModifier;
 import org.dnd.sdk.language.Language;
 import org.dnd.sdk.language.LanguageUnderstanding;
 
@@ -18,9 +18,8 @@ import org.dnd.sdk.language.LanguageUnderstanding;
  * @author Arne
  */
 public class Halfling extends Race {
-    public List<AbilityIncrease> getAbilityIncreases() {
-        return Arrays.asList(
-                AbilityIncrease.construct(Ability.DEXTERITY, 2)
+    public List<AbilityModifier> getAbilityModifiers() {
+        return Arrays.asList(AbilityModifier.construct(Ability.DEXTERITY, 2)
         );
     }   
 

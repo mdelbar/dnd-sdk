@@ -9,7 +9,7 @@ import org.dnd.sdk.character.race.interfaces.Race;
 import java.util.Arrays;
 import java.util.List;
 import org.dnd.sdk.ability.Ability;
-import org.dnd.sdk.ability.AbilityIncrease;
+import org.dnd.sdk.ability.AbilityModifier;
 import org.dnd.sdk.language.Language;
 import org.dnd.sdk.language.LanguageUnderstanding;
 
@@ -19,10 +19,9 @@ import org.dnd.sdk.language.LanguageUnderstanding;
  */
 public class Dragonborn extends Race {
 
-    public List<AbilityIncrease> getAbilityIncreases() {
-        return Arrays.asList(
-            AbilityIncrease.construct(Ability.STRENGTH, 2),
-            AbilityIncrease.construct(Ability.CHARISMA, 1)
+    public List<AbilityModifier> getAbilityModifiers() {
+        return Arrays.asList(AbilityModifier.construct(Ability.STRENGTH, 2),
+            AbilityModifier.construct(Ability.CHARISMA, 1)
         );
     }
 
