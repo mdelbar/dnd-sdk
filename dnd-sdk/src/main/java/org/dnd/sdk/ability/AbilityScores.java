@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class AbilityScores {
     
-    private Map<Ability, Integer> scores = new HashMap<Ability, Integer>();
+    private Map<AbilityType, Integer> scores = new HashMap<AbilityType, Integer>();
     
     public AbilityScores (AbilityScore[] ...scores) {
         
@@ -26,7 +26,7 @@ public class AbilityScores {
         this.scores.put(score.getAbility(), score.getValue());
     }
     
-    public int getAbilityScore (Ability ability) {
+    public int getAbilityScore (AbilityType ability) {
         return this.scores.get(ability);
     }       
     

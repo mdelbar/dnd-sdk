@@ -6,14 +6,14 @@ import org.dnd.sdk.ability.AbilityModifier;
 import org.dnd.sdk.age.WithLifeExpectancy;
 import org.dnd.sdk.language.Language;
 import org.dnd.sdk.language.LanguageUnderstanding;
-import org.dnd.sdk.move.Moveable;
 import org.dnd.sdk.age.WithAge;
+import org.dnd.sdk.move.WithMove;
 
 /**
  *
  * @author Matthias Delbar
  */
-public abstract class Race implements WithLifeExpectancy, Moveable {
+public abstract class Race implements WithLifeExpectancy, WithMove {
     
     public int getMovementSpeed() {
        return 30;

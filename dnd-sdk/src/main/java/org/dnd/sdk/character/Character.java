@@ -2,43 +2,40 @@
 package org.dnd.sdk.character;
 
 import java.util.List;
-import java.util.function.Consumer;
 import org.dnd.sdk.ability.Ability;
-import org.dnd.sdk.ability.AbilityModifier;
-import org.dnd.sdk.ability.AbilityScores;
+import org.dnd.sdk.ability.AbilityType;
 import org.dnd.sdk.ability.WithAbilities;
 import org.dnd.sdk.alignment.Alignment;
 import org.dnd.sdk.character.race.abstracts.Race;
 import org.dnd.sdk.condition.Condition;
-import org.dnd.sdk.language.Language;
 import org.dnd.sdk.language.LanguageUnderstanding;
-import org.dnd.sdk.move.Moveable;
 import org.dnd.sdk.age.WithAge;
+import org.dnd.sdk.move.WithMove;
 
 /**
  *
  * @author Matthias Delbar
  */
-public class Character implements WithAge, Moveable, WithAbilities {
-    
+public class Character implements WithAge, WithMove, WithAbilities {
+
     private final Race race;
-    private int age;    
-    private Condition currentCondition;    
-    private final Alignment alignment;    
-    private AbilityScores abilities;    
-    private int proficiency;   
+    private int age;
+    private Condition condition;
+    private final Alignment alignment;
+    private List<Ability> abilities;
+    private int proficiency;
     private int experience;
     private int currentHitPoints;
     private int maximumHitPoints;
     private int temporaryHitPoints;
-    
-    public Character (Alignment alignment, Race race, int age, AbilityScores abilities) {
+
+    public Character(Alignment alignment, Race race, int age, List<Ability> abilities) {
         this.race = race;
         this.age = age;
-        this.currentCondition = Condition.NORMAL;
+        this.condition = Condition.NORMAL;
         this.alignment = alignment;
         this.abilities = abilities;
-        
+
         // Alternative that does not work with because this references the anynomous class' instance
         // Don't know the correct way to do this
 //        race.getAbilityIncreases().forEach(new Consumer<AbilityIncrease> () {
@@ -52,10 +49,14 @@ public class Character implements WithAge, Moveable, WithAbilities {
         return this.age;
     }
 
+    // MD: Unsure if relevant? Do we ever want to know the character's mature/avg age?
+    //     Might be better done via getRace().getMat/Avg
     public int getMatureAge() {
         return this.race.getMatureAge();
     }
 
+    // MD: Unsure if relevant? Do we ever want to know the character's mature/avg age?
+    //     Might be better done via getRace().getMat/Avg
     public int getAverageAge() {
         return this.race.getAverageAge();
     }
@@ -64,7 +65,7 @@ public class Character implements WithAge, Moveable, WithAbilities {
         // TODO: Add speed modifiers by equiped items etc.
         return this.race.getMovementSpeed();
     }
-    
+
     public List<LanguageUnderstanding> getLanguages() {
         return this.race.getLanguages();
     }
@@ -77,25 +78,34 @@ public class Character implements WithAge, Moveable, WithAbilities {
         return alignment;
     }
 
-    public Condition getCurrentCondition() {
-        return currentCondition;
+    public Condition getCondition() {
+        return condition;
     }
 
-    public void setCurrentCondition(Condition currentCondition) {
-        this.currentCondition = currentCondition;
+    public void setCondition(Condition currentCondition) {
+        this.condition = currentCondition;
     }
 
-    public int getAbilityScore(Ability ability) {
+    public int getAbilityScore(AbilityType abilityType) {
+        if(abilityType == null) {
+            return 0;
+        }
         // TODO: apply Ability Score Modifiers ... or not, if they have been applied elsewhere
-        return this.abilities.getAbilityScore(ability) ;
+        for(Ability ab : abilities) {
+            if(abilityType.equals(ab.getType())) {
+                return ab.getScore();
+            }
+        }
+        return 0;
     }
 
-    public int getAbilityModifier(Ability ability) {
-        return this.getAbilityScore(ability) / 2;
+    public int getAbilityModifier(AbilityType ability) {
+        int score = getAbilityScore(ability);
+        return ((score - 10) / 2);
     }
-    
+
     public void gainExperience (int experience) {
         this.experience += experience;
-        // TODO: check if level increase... and what to do if level is increased.       
+        // TODO: check if level increase... and what to do if level is increased.
     }
 }

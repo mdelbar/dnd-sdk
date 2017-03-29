@@ -8,7 +8,7 @@ package org.dnd.sdk.character.race;
 import org.dnd.sdk.character.race.abstracts.Race;
 import java.util.Arrays;
 import java.util.List;
-import org.dnd.sdk.ability.Ability;
+import org.dnd.sdk.ability.AbilityType;
 import org.dnd.sdk.ability.AbilityModifier;
 import org.dnd.sdk.language.Language;
 import org.dnd.sdk.language.LanguageUnderstanding;
@@ -19,18 +19,18 @@ import org.dnd.sdk.language.LanguageUnderstanding;
  */
 public class HalfElf extends Race {
     
-    private final Ability chosenAbility1;
-    private final Ability chosenAbility2;
+    private final AbilityType chosenAbility1;
+    private final AbilityType chosenAbility2;
     private final Language chosenLanguage;
 
-    public HalfElf(Ability chosenAbility1, Ability chosenAbility2, Language chosenLanguage) {
+    public HalfElf(AbilityType chosenAbility1, AbilityType chosenAbility2, Language chosenLanguage) {
         this.chosenAbility1 = chosenAbility1;
         this.chosenAbility2 = chosenAbility2;
         this.chosenLanguage = chosenLanguage;
     }   
     
     public List<AbilityModifier> getAbilityModifiers() {
-        return Arrays.asList(AbilityModifier.construct(Ability.CONSTITUTION, 2),
+        return Arrays.asList(AbilityModifier.construct(AbilityType.CONSTITUTION, 2),
                 AbilityModifier.construct(this.chosenAbility1, 1),
                 AbilityModifier.construct(this.chosenAbility2, 1)
         );
