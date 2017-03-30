@@ -8,7 +8,7 @@ package org.dnd.sdk.character.race;
 import org.dnd.sdk.character.race.abstracts.Race;
 import java.util.Arrays;
 import java.util.List;
-import org.dnd.sdk.ability.AbilityType;
+import org.dnd.sdk.ability.Ability;
 import org.dnd.sdk.ability.AbilityModifier;
 import org.dnd.sdk.language.Language;
 import org.dnd.sdk.language.LanguageUnderstanding;
@@ -19,7 +19,7 @@ import org.dnd.sdk.language.LanguageUnderstanding;
  */
 public class Gnome extends Race {
     public List<AbilityModifier> getAbilityModifiers() {
-        return Arrays.asList(AbilityModifier.construct(AbilityType.INTELLIGENCE, 2)
+        return Arrays.asList(AbilityModifier.construct(Ability.INTELLIGENCE, 2)
         );
     }    
 

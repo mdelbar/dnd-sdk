@@ -1,7 +1,7 @@
 
 package org.dnd.sdk.skill;
 
-import org.dnd.sdk.ability.AbilityType;
+import org.dnd.sdk.ability.Ability;
 
 /**
  *
@@ -9,24 +9,24 @@ import org.dnd.sdk.ability.AbilityType;
  */
 public enum Skill {
     
-    DECEPTION(AbilityType.CHARISMA),INTIMIDATION(AbilityType.CHARISMA), PERFORMANCE(AbilityType.CHARISMA), PERSUASION(AbilityType.CHARISMA),
-    ACROBATICS(AbilityType.DEXTERITY), SLEIGHT_OF_HANDS(AbilityType.DEXTERITY), STEALTH(AbilityType.DEXTERITY),
-    ARCANA(AbilityType.INTELLIGENCE), HISTORY(AbilityType.INTELLIGENCE), INVESTIGATION(AbilityType.INTELLIGENCE), 
-    NATURE(AbilityType.INTELLIGENCE), RELIGION(AbilityType.INTELLIGENCE),
-    ATHLETICS(AbilityType.STRENGTH), ANIMAL_HANDLING(AbilityType.WISDOM), INSIGHT(AbilityType.WISDOM),
-    MEDICINE(AbilityType.WISDOM), PERCEPTION(AbilityType.WISDOM), SURVIVAL(AbilityType.WISDOM)
+    DECEPTION(Ability.CHARISMA),INTIMIDATION(Ability.CHARISMA), PERFORMANCE(Ability.CHARISMA), PERSUASION(Ability.CHARISMA),
+    ACROBATICS(Ability.DEXTERITY), SLEIGHT_OF_HANDS(Ability.DEXTERITY), STEALTH(Ability.DEXTERITY),
+    ARCANA(Ability.INTELLIGENCE), HISTORY(Ability.INTELLIGENCE), INVESTIGATION(Ability.INTELLIGENCE), 
+    NATURE(Ability.INTELLIGENCE), RELIGION(Ability.INTELLIGENCE),
+    ATHLETICS(Ability.STRENGTH), ANIMAL_HANDLING(Ability.WISDOM), INSIGHT(Ability.WISDOM),
+    MEDICINE(Ability.WISDOM), PERCEPTION(Ability.WISDOM), SURVIVAL(Ability.WISDOM)
     ;
     
-    private AbilityType ability;
-    private Skill(AbilityType ability) {
+    private Ability ability;
+    private Skill(Ability ability) {
         this.ability = ability;
     }
 
-    public AbilityType getAbility() {
+    public Ability getAbility() {
         return ability;
     }
 
-    public void setAbility(AbilityType ability) {
+    public void setAbility(Ability ability) {
         this.ability = ability;
     }
     

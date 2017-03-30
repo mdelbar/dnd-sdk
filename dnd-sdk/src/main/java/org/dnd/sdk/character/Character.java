@@ -2,8 +2,8 @@
 package org.dnd.sdk.character;
 
 import java.util.List;
+import org.dnd.sdk.ability.AbilityScore;
 import org.dnd.sdk.ability.Ability;
-import org.dnd.sdk.ability.AbilityType;
 import org.dnd.sdk.ability.WithAbilities;
 import org.dnd.sdk.alignment.Alignment;
 import org.dnd.sdk.character.race.abstracts.Race;
@@ -22,14 +22,14 @@ public class Character implements WithAge, WithMove, WithAbilities {
     private int age;
     private Condition condition;
     private final Alignment alignment;
-    private List<Ability> abilities;
+    private List<AbilityScore> abilities;
     private int proficiency;
     private int experience;
     private int currentHitPoints;
     private int maximumHitPoints;
     private int temporaryHitPoints;
 
-    public Character(Alignment alignment, Race race, int age, List<Ability> abilities) {
+    public Character(Alignment alignment, Race race, int age, List<AbilityScore> abilities) {
         this.race = race;
         this.age = age;
         this.condition = Condition.NORMAL;
@@ -86,20 +86,20 @@ public class Character implements WithAge, WithMove, WithAbilities {
         this.condition = currentCondition;
     }
 
-    public int getAbilityScore(AbilityType abilityType) {
+    public int getAbilityScore(Ability abilityType) {
         if(abilityType == null) {
             return 0;
         }
         // TODO: apply Ability Score Modifiers ... or not, if they have been applied elsewhere
-        for(Ability ab : abilities) {
-            if(abilityType.equals(ab.getType())) {
-                return ab.getScore();
+        for(AbilityScore ab : abilities) {
+            if(abilityType.equals(ab.getAbility())) {
+                return ab.getValue();
             }
         }
         return 0;
     }
 
-    public int getAbilityModifier(AbilityType ability) {
+    public int getAbilityModifier(Ability ability) {
         int score = getAbilityScore(ability);
         return ((score - 10) / 2);
     }

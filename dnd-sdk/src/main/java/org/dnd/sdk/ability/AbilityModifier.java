@@ -11,19 +11,19 @@ package org.dnd.sdk.ability;
  */
 public class AbilityModifier {
     
-    private AbilityType ability;
+    private Ability ability;
     private int value;
 
-    public AbilityModifier(AbilityType ability, int value) {
+    public AbilityModifier(Ability ability, int value) {
         this.ability = ability;
         this.value = value;
     }
 
-    public AbilityType getAbility() {
+    public Ability getAbility() {
         return ability;
     }
 
-    public void setAbility(AbilityType ability) {
+    public void setAbility(Ability ability) {
         this.ability = ability;
     }
 
@@ -35,7 +35,7 @@ public class AbilityModifier {
         this.value = value;
     }
     
-    public static AbilityModifier construct(AbilityType ability, int value) {
+    public static AbilityModifier construct(Ability ability, int value) {
         return new AbilityModifier(ability, value);
     }
     

@@ -1,29 +1,14 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.dnd.sdk.ability;
 
 /**
  *
- * @author Matthias Delbar
+ * @author Arne
  */
-public class Ability {
-
-    private AbilityType type;
-    private int score;
-
-    public AbilityType getType() {
-        return type;
-    }
-
-    public void setType(final AbilityType type) {
-        this.type = type;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(final int score) {
-        this.score = score;
-    }
-
+public enum Ability {
+    STRENGTH, CONSTITUTION, DEXTERITY, INTELLIGENCE, WISDOM, CHARISMA
 }

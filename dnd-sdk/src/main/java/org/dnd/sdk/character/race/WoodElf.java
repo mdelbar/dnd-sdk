@@ -4,7 +4,7 @@ package org.dnd.sdk.character.race;
 import java.util.Arrays;
 import java.util.List;
 import org.dnd.sdk.ability.AbilityModifier;
-import org.dnd.sdk.ability.AbilityType;
+import org.dnd.sdk.ability.Ability;
 
 /**
  *
@@ -15,8 +15,7 @@ public class WoodElf extends Elf {
     @Override
     public List<AbilityModifier> getAbilityModifiers() {
         List<AbilityModifier> increases = super.getAbilityModifiers();
-        increases.addAll(Arrays.asList(
-                AbilityModifier.construct(AbilityType.WISDOM, 1)
+        increases.addAll(Arrays.asList(AbilityModifier.construct(Ability.WISDOM, 1)
         ));
         return increases;
     }
