@@ -2,15 +2,23 @@
 package org.dnd.sdk.character;
 
 import java.util.List;
+import java.util.function.Consumer;
 import org.dnd.sdk.ability.AbilityScore;
 import org.dnd.sdk.ability.Ability;
+import org.dnd.sdk.ability.AbilityModifier;
+import org.dnd.sdk.ability.AbilityScores;
 import org.dnd.sdk.ability.WithAbilities;
 import org.dnd.sdk.alignment.Alignment;
 import org.dnd.sdk.character.race.abstracts.Race;
 import org.dnd.sdk.condition.Condition;
 import org.dnd.sdk.language.LanguageUnderstanding;
 import org.dnd.sdk.age.WithAge;
+import org.dnd.sdk.character.klass.abstracts.Klass;
 import org.dnd.sdk.move.WithMove;
+import org.dnd.sdk.proficiency.Proficiency;
+import org.dnd.sdk.random.Die;
+import org.dnd.sdk.random.DieType;
+import org.dnd.sdk.random.Roll;
 
 /**
  *
@@ -19,30 +27,25 @@ import org.dnd.sdk.move.WithMove;
 public class Character implements WithAge, WithMove, WithAbilities {
 
     private final Race race;
+    private final Klass klass;
+    private int level;
     private int age;
     private Condition condition;
     private final Alignment alignment;
-    private List<AbilityScore> abilities;
+    private AbilityScores abilities;
     private int proficiency;
     private int experience;
     private int currentHitPoints;
     private int maximumHitPoints;
     private int temporaryHitPoints;
 
-    public Character(Alignment alignment, Race race, int age, List<AbilityScore> abilities) {
+    public Character(Alignment alignment, Race race, Klass klass, int age, AbilityScores abilities) {
         this.race = race;
         this.age = age;
         this.condition = Condition.NORMAL;
         this.alignment = alignment;
         this.abilities = abilities;
-
-        // Alternative that does not work with because this references the anynomous class' instance
-        // Don't know the correct way to do this
-//        race.getAbilityIncreases().forEach(new Consumer<AbilityIncrease> () {
-//            public void accept(AbilityIncrease modifier) {
-//                abilities.modifyAbilityScore(modifier);
-//            }
-//        });
+        this.klass = klass;
     }
 
     public int getAge() {
@@ -86,17 +89,15 @@ public class Character implements WithAge, WithMove, WithAbilities {
         this.condition = currentCondition;
     }
 
-    public int getAbilityScore(Ability abilityType) {
-        if(abilityType == null) {
-            return 0;
-        }
-        // TODO: apply Ability Score Modifiers ... or not, if they have been applied elsewhere
-        for(AbilityScore ab : abilities) {
-            if(abilityType.equals(ab.getAbility())) {
-                return ab.getValue();
-            }
-        }
-        return 0;
+    public int getAbilityScore(Ability ability) {
+        int base = abilities.getAbilityScore(ability);
+            base += this.race.getAbilityModifiers()
+                                .stream()
+                                .filter(modifier -> modifier.getAbility() == ability)
+                                .mapToInt(AbilityModifier::getValue)
+                                .sum();
+        
+        return base;
     }
 
     public int getAbilityModifier(Ability ability) {
@@ -108,4 +109,16 @@ public class Character implements WithAge, WithMove, WithAbilities {
         this.experience += experience;
         // TODO: check if level increase... and what to do if level is increased.
     }
+    
+    public int abilityCheck (Ability ability) {
+        int result = Die.instance.roll(new Roll(DieType.D20, 1));
+        result += this.getAbilityModifier(ability);
+        if (this.klass.getPrimaryAbility() == ability) result += Proficiency.getProfiencyBonusForLevel(this.getLevel());
+        return result;
+    }
+
+    public int getLevel() {
+        return this.level;
+    }
+    
 }
