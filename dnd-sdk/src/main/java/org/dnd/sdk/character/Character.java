@@ -19,6 +19,7 @@ import org.dnd.sdk.proficiency.Proficiency;
 import org.dnd.sdk.random.Die;
 import org.dnd.sdk.random.DieType;
 import org.dnd.sdk.random.Roll;
+import org.dnd.sdk.skill.Skill;
 
 /**
  *
@@ -54,16 +55,19 @@ public class Character implements WithAge, WithMove, WithAbilities {
 
     // MD: Unsure if relevant? Do we ever want to know the character's mature/avg age?
     //     Might be better done via getRace().getMat/Avg
+    // Sure... you can easily access it through the race
     public int getMatureAge() {
         return this.race.getMatureAge();
     }
 
     // MD: Unsure if relevant? Do we ever want to know the character's mature/avg age?
     //     Might be better done via getRace().getMat/Avg
+    // Sure... you can easily access it through the race
     public int getAverageAge() {
         return this.race.getAverageAge();
     }
 
+    @Override
     public int getMovementSpeed() {
         // TODO: Add speed modifiers by equiped items etc.
         return this.race.getMovementSpeed();
@@ -110,11 +114,21 @@ public class Character implements WithAge, WithMove, WithAbilities {
         // TODO: check if level increase... and what to do if level is increased.
     }
     
+    public boolean isProficientIn(Skill skill) {
+        return false;
+    }
+    
     public int abilityCheck (Ability ability) {
         int result = Die.instance.roll(new Roll(DieType.D20, 1));
         result += this.getAbilityModifier(ability);
         if (this.klass.getPrimaryAbility() == ability) result += Proficiency.getProfiencyBonusForLevel(this.getLevel());
         return result;
+    }
+    
+    public int skillCheck (Skill skill) {
+        int check = this.abilityCheck(skill.getAbility());
+        if (this.isProficientIn(skill)) check += Proficiency.getProfiencyBonusForLevel(this.getLevel());
+        return check;
     }
 
     public int getLevel() {
